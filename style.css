@@ -1,0 +1,173 @@
+/* General reset and body styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000; /* Black background */
+  font-family: 'Arial', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 10px; /* Prevents overflow on mobile */
+  box-sizing: border-box;
+}
+
+/* Container for the game layout */
+#gameContainer {
+  text-align: center;
+  width: 100%;
+  max-width: 600px; /* Prevents large screens from stretching */
+}
+
+/* Trophy Container */
+#trophyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Trophy */
+#trophy {
+  width: 230px; /* Trophy body width */
+  height: 345px; /* Trophy body height */
+  background: linear-gradient(180deg, #FFD700, #FFC107); /* Gold gradient */
+  border: 5px solid #B8860B; /* Darker gold outline */
+  border-radius: 10px 10px 50px 50px; /* Rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  position: relative;
+}
+
+/* Trophy Handles */
+#trophy::before,
+#trophy::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 60px; /* Half the height to create half-circle shape */
+  background: linear-gradient(180deg, #FFD700, #FFC107); /* Gold gradient */
+  border: 5px solid #B8860B; /* Outline matches the trophy body */
+  border-radius: 60px 60px 0 0; /* Half-circle */
+  top: 80px; /* Position closer to the trophy body */
+}
+
+/* Left Handle */
+#trophy::before {
+  left: -100px;
+  transform: rotate(-90deg); /* Rotates handle left */
+}
+
+/* Right Handle */
+#trophy::after {
+  right: -100px;
+  transform: rotate(90deg); /* Rotates handle right */
+}
+
+/* Trophy Stand */
+#trophyStand {
+  width: 172px; /* Stand width */
+  height: 34px; /* Stand height */
+  background: linear-gradient(180deg, #B8860B, #8B4513); /* Bronze gradient */
+  border: 5px solid #8B4513; /* Darker bronze outline */
+  border-radius: 5px; /* Slightly rounded edges */
+  margin-top: -6px; /* Adjustment for alignment */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
+}
+
+/* Trophy Title */
+#trophy h1 {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px #B8860B; /* Subtle glow */
+  text-align: center;
+  padding: 0 10px;
+  z-index: 1;
+}
+
+/* Game Code Entry */
+#gameCodeContainer {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 10px;
+  width: 80%;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Start Button */
+button {
+  padding: 15px;
+  background-color: orange;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 80%; /* Ensure button is responsive */
+}
+
+button:active {
+  transform: scale(1.1);
+}
+
+button[disabled] {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* TeamName Entry */
+#teamNameEntryContainer {
+  margin-top: 20px;
+}
+
+input#teamNameInput {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  width: 80%;
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0.5; /* Disabled input field */
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 600px) {
+  #trophy {
+    width: 180px; /* Smaller trophy for mobile */
+    height: 270px; /* Smaller trophy height */
+  }
+
+  #trophyStand {
+    width: 140px; /* Adjust stand width */
+  }
+
+  button {
+    width: 90%; /* Make button larger for mobile */
+    padding: 14px; /* Slightly larger button padding */
+  }
+
+  input {
+    width: 90%; /* Make inputs wider */
+  }
+
+  #gameContainer {
+    margin: 20px;
+    max-width: 100%; /* Ensure game container is full-width on smaller screens */
+  }
+}
